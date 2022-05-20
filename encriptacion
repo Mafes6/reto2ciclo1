@@ -1,0 +1,52 @@
+
+def encriptador(mensaje):
+    # ACÁ INICIA LA FUNCIÓN ENCRIPTADOR
+    # (En este espacio debes poner el código necesario para encriptar)
+    
+    carac_uniq = list(set(mensaje))
+    print(len(mensaje))
+    clave = dict(zip(carac_uniq, alfabeto))
+    encriptado = []
+    for i in mensaje:
+        encriptado.append(clave[i])
+    encriptado = "".join(encriptado)
+    print(encriptado)
+    return encriptado, clave
+    
+    
+    # ACÁ TERMINA LA FUNCIÓN ENCRIPTADOR
+    # NO MODIFIQUES LA SIGUIENTE LÍNEA
+    return encriptado, clave
+
+    
+def desencriptador(encriptado, clave):
+
+    # ACÁ INICIA LA FUNCIÓN DESENCRIPTADOR 
+    # (En este espacio debes poner el código necesario para desencriptar)
+    
+    carac_ = list(encriptado)
+    carac_clave = list(clave)
+    dic = dict(zip(clave, encriptado))
+    values = list(clave.values())
+    keys = list(clave.keys())
+    dic = dict(zip(values, keys))
+    desencrictador = []
+    for i in range(len(encriptado)):
+        for letra in dic:
+            if letra == encriptado[i]:
+                desencrictador.append(dic[letra])
+
+    desencriptado = "".join(desencrictador)
+    print(desencriptado)    
+    
+    
+    # ACÁ TERMINA LA FUNCIÓN DESENCRIPTADOR
+    # NO MODIFIQUES LA SIGUIENTE LÍNEA
+    return desencriptado
+    
+    
+mensaje = " Hola Mundo !"
+e,c = encriptador(mensaje)
+
+des = desencriptador(e,c)
+print(des)
